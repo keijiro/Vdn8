@@ -6,7 +6,7 @@ RenderTexture:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Position
+  m_Name: Color4
   m_ImageContentsHash:
     serializedVersion: 2
     Hash: 00000000000000000000000000000000
@@ -17,7 +17,7 @@ RenderTexture:
   m_Height: 424
   m_AntiAliasing: 1
   m_DepthFormat: 0
-  m_ColorFormat: 48
+  m_ColorFormat: 8
   m_MipMap: 0
   m_GenerateMips: 1
   m_SRGB: 0
@@ -26,7 +26,7 @@ RenderTexture:
   m_EnableCompatibleFormat: 1
   m_TextureSettings:
     serializedVersion: 2
-    m_FilterMode: 1
+    m_FilterMode: 0
     m_Aniso: 0
     m_MipBias: 0
     m_WrapU: 1
