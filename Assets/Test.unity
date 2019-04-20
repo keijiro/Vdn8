@@ -319,11 +319,17 @@ VisualEffect:
       - m_Value: 0
         m_Name: Particle Throttle
         m_Overridden: 1
-      - m_Value: -1
+      - m_Value: 1
         m_Name: Filter Offset
         m_Overridden: 1
-      - m_Value: 1
+      - m_Value: -1
         m_Name: Filter Scale
+        m_Overridden: 1
+      - m_Value: 2
+        m_Name: Particle Life
+        m_Overridden: 1
+      - m_Value: 1
+        m_Name: Attractor Force
         m_Overridden: 1
     m_Vector2f:
       m_Array: []
@@ -338,6 +344,9 @@ VisualEffect:
       - m_Value: {x: 1, y: 1, z: 1}
         m_Name: Transform_scale
         m_Overridden: 1
+      - m_Value: {x: 1.5, y: -0.2, z: 0}
+        m_Name: Attractor Position
+        m_Overridden: 1
     m_Vector4f:
       m_Array: []
     m_Uint:
@@ -349,7 +358,38 @@ VisualEffect:
     m_AnimationCurve:
       m_Array: []
     m_Gradient:
-      m_Array: []
+      m_Array:
+      - m_Value:
+          serializedVersion: 2
+          key0: {r: 2.1185474, g: 0.84298223, b: 0.52131796, a: 1}
+          key1: {r: 1.7207954, g: 1.081128, b: 1.1072441, a: 1}
+          key2: {r: 0, g: 0, b: 0, a: 0}
+          key3: {r: 0, g: 0, b: 0, a: 0}
+          key4: {r: 0, g: 0, b: 0, a: 0}
+          key5: {r: 0, g: 0, b: 0, a: 0}
+          key6: {r: 0, g: 0, b: 0, a: 0}
+          key7: {r: 0, g: 0, b: 0, a: 0}
+          ctime0: 0
+          ctime1: 65535
+          ctime2: 0
+          ctime3: 0
+          ctime4: 0
+          ctime5: 0
+          ctime6: 0
+          ctime7: 0
+          atime0: 0
+          atime1: 65535
+          atime2: 0
+          atime3: 0
+          atime4: 0
+          atime5: 0
+          atime6: 0
+          atime7: 0
+          m_Mode: 0
+          m_NumColorKeys: 2
+          m_NumAlphaKeys: 2
+        m_Name: Particle Gradient
+        m_Overridden: 1
     m_NamedObject:
       m_Array:
       - m_Value: {fileID: 8400000, guid: e030d2df7b23ac715b1f6c6f16a699cf, type: 2}
@@ -863,11 +903,17 @@ VisualEffect:
       - m_Value: 0
         m_Name: Particle Throttle
         m_Overridden: 1
-      - m_Value: -1
+      - m_Value: 1
         m_Name: Filter Offset
         m_Overridden: 1
-      - m_Value: 1
+      - m_Value: -1
         m_Name: Filter Scale
+        m_Overridden: 1
+      - m_Value: 2
+        m_Name: Particle Life
+        m_Overridden: 1
+      - m_Value: 1
+        m_Name: Attractor Force
         m_Overridden: 1
     m_Vector2f:
       m_Array: []
@@ -881,6 +927,9 @@ VisualEffect:
         m_Overridden: 1
       - m_Value: {x: 1, y: 1, z: 1}
         m_Name: Transform_scale
+        m_Overridden: 1
+      - m_Value: {x: 1.5, y: -0.2, z: 0}
+        m_Name: Attractor Position
         m_Overridden: 1
     m_Vector4f:
       m_Array: []
@@ -958,8 +1007,8 @@ VisualEffect:
         m_Overridden: 1
       - m_Value:
           serializedVersion: 2
-          key0: {r: 1.319508, g: 1.319508, b: 1.319508, a: 1}
-          key1: {r: 0.29494882, g: 1.0402168, b: 1.319508, a: 1}
+          key0: {r: 2.2831419, g: 2.6859045, b: 3.4822018, a: 1}
+          key1: {r: 1.8396538, g: 1.8396538, b: 1.8396538, a: 1}
           key2: {r: 0, g: 0, b: 0, a: 0}
           key3: {r: 0, g: 0, b: 0, a: 0}
           key4: {r: 0, g: 0, b: 0, a: 0}
@@ -1137,14 +1186,20 @@ VisualEffect:
       - m_Value: 0
         m_Name: Throttle
         m_Overridden: 1
-      - m_Value: -1
+      - m_Value: 1
         m_Name: Filter Offset
         m_Overridden: 1
-      - m_Value: 1
+      - m_Value: -1
         m_Name: Filter Scale
         m_Overridden: 1
       - m_Value: 0
         m_Name: Particle Throttle
+        m_Overridden: 1
+      - m_Value: 2
+        m_Name: Particle Life
+        m_Overridden: 1
+      - m_Value: 1
+        m_Name: Attractor Force
         m_Overridden: 1
     m_Vector2f:
       m_Array: []
@@ -1158,6 +1213,9 @@ VisualEffect:
         m_Overridden: 1
       - m_Value: {x: 1, y: 1, z: 1}
         m_Name: Transform_scale
+        m_Overridden: 1
+      - m_Value: {x: 1.5, y: -0.2, z: 0}
+        m_Name: Attractor Position
         m_Overridden: 1
     m_Vector4f:
       m_Array: []
@@ -1235,8 +1293,8 @@ VisualEffect:
         m_Overridden: 1
       - m_Value:
           serializedVersion: 2
-          key0: {r: 1.319508, g: 1.319508, b: 1.319508, a: 1}
-          key1: {r: 0.29494882, g: 1.0402168, b: 1.319508, a: 1}
+          key0: {r: 2.2831419, g: 2.6859045, b: 3.4822018, a: 1}
+          key1: {r: 1.8396538, g: 1.8396538, b: 1.8396538, a: 1}
           key2: {r: 0, g: 0, b: 0, a: 0}
           key3: {r: 0, g: 0, b: 0, a: 0}
           key4: {r: 0, g: 0, b: 0, a: 0}
@@ -1417,11 +1475,17 @@ VisualEffect:
       - m_Value: 0
         m_Name: Particle Throttle
         m_Overridden: 1
-      - m_Value: -1
+      - m_Value: 1
         m_Name: Filter Offset
         m_Overridden: 1
-      - m_Value: 1
+      - m_Value: -1
         m_Name: Filter Scale
+        m_Overridden: 1
+      - m_Value: 2
+        m_Name: Particle Life
+        m_Overridden: 1
+      - m_Value: 1
+        m_Name: Attractor Force
         m_Overridden: 1
     m_Vector2f:
       m_Array: []
@@ -1436,6 +1500,9 @@ VisualEffect:
       - m_Value: {x: 1, y: 1, z: 1}
         m_Name: Transform_scale
         m_Overridden: 1
+      - m_Value: {x: 1.5, y: -0.2, z: 0}
+        m_Name: Attractor Position
+        m_Overridden: 1
     m_Vector4f:
       m_Array: []
     m_Uint:
@@ -1447,7 +1514,38 @@ VisualEffect:
     m_AnimationCurve:
       m_Array: []
     m_Gradient:
-      m_Array: []
+      m_Array:
+      - m_Value:
+          serializedVersion: 2
+          key0: {r: 2.1185474, g: 0.84298223, b: 0.52131796, a: 1}
+          key1: {r: 1.7207954, g: 1.081128, b: 1.1072441, a: 1}
+          key2: {r: 1.7207954, g: 1.081128, b: 1.1072441, a: 0}
+          key3: {r: 0.7490196, g: 0.47058824, b: 0.62352943, a: 0}
+          key4: {r: 33.89676, g: 21.296392, b: 28.21772, a: 0}
+          key5: {r: 0, g: 0, b: 0, a: 0}
+          key6: {r: 0, g: 0, b: 0, a: 0}
+          key7: {r: 0, g: 0, b: 0, a: 0}
+          ctime0: 0
+          ctime1: 65535
+          ctime2: 65535
+          ctime3: 65535
+          ctime4: 65535
+          ctime5: 0
+          ctime6: 0
+          ctime7: 0
+          atime0: 0
+          atime1: 65535
+          atime2: 0
+          atime3: 0
+          atime4: 0
+          atime5: 0
+          atime6: 0
+          atime7: 0
+          m_Mode: 0
+          m_NumColorKeys: 2
+          m_NumAlphaKeys: 2
+        m_Name: Particle Gradient
+        m_Overridden: 1
     m_NamedObject:
       m_Array:
       - m_Value: {fileID: 8400000, guid: 458a35b464fe5c0f8a62cf1e05cf8d1b, type: 2}
@@ -1664,8 +1762,12 @@ PlayableDirector:
     - 61c8ef05176853466addb1b972dc31ae: {fileID: 933933097}
     - 58b529b4b3c3c20878177847bb739b28: {fileID: 155216940}
     - e08737bc65ca6a2f8814c690044d2dd7: {fileID: 94927947}
+    - 3a8d6ea243786d7d394f52f35e6ada5f: {fileID: 1581242246}
+    - 934799dabe75aa63b8ee3b166f5e8544: {fileID: 879347887}
     - e85ae0671bad7bbd7a84e1465859e2ab: {fileID: 879347887}
     - f1f20f5fb24effcecb41fa49744f2fd4: {fileID: 155216940}
+    - 8f966022c5777764faa0a48b58f3ebb3: {fileID: 933933097}
+    - 33b5299e21e8e1a8ea27f8a94957d820: {fileID: 155216940}
     - 389bed590a452be37837b58e49bb66a0: {fileID: 933933097}
     - a9c0de9f3da86f37cb9cd30d19729718: {fileID: 155216940}
     - a1a1e2b50a8320abeaf6445f29a9b0eb: {fileID: 1581242246}
