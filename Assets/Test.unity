@@ -806,6 +806,7 @@ GameObject:
   - component: {fileID: 599576419}
   - component: {fileID: 599576421}
   - component: {fileID: 599576420}
+  - component: {fileID: 599576422}
   m_Layer: 0
   m_Name: Zombie 3 VFX
   m_TagString: Untagged
@@ -821,7 +822,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 599576418}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.6, y: 0, z: 0}
+  m_LocalPosition: {x: -0.01, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 226516790}
@@ -878,8 +879,11 @@ VisualEffect:
   m_PropertySheet:
     m_Float:
       m_Array:
-      - m_Value: 1
+      - m_Value: 0
         m_Name: Particle Throttle
+        m_Overridden: 1
+      - m_Value: 1
+        m_Name: Fall
         m_Overridden: 1
     m_Vector2f:
       m_Array: []
@@ -941,6 +945,25 @@ VisualEffect:
         m_Overridden: 1
     m_Bool:
       m_Array: []
+--- !u!95 &599576422
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 599576418}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &863051303
 GameObject:
   m_ObjectHideFlags: 0
@@ -1823,6 +1846,7 @@ GameObject:
   - component: {fileID: 1365017464}
   - component: {fileID: 1365017466}
   - component: {fileID: 1365017465}
+  - component: {fileID: 1365017467}
   m_Layer: 0
   m_Name: Zombie 2 VFX
   m_TagString: Untagged
@@ -1838,7 +1862,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1365017463}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.76, y: 0, z: 0}
+  m_LocalPosition: {x: 0.89, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 226516790}
@@ -1895,8 +1919,11 @@ VisualEffect:
   m_PropertySheet:
     m_Float:
       m_Array:
-      - m_Value: 1
+      - m_Value: 0
         m_Name: Particle Throttle
+        m_Overridden: 1
+      - m_Value: 1
+        m_Name: Fall
         m_Overridden: 1
     m_Vector2f:
       m_Array: []
@@ -1958,6 +1985,25 @@ VisualEffect:
         m_Overridden: 1
     m_Bool:
       m_Array: []
+--- !u!95 &1365017467
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1365017463}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1471480014
 GameObject:
   m_ObjectHideFlags: 0
@@ -2604,7 +2650,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1823603838
 Transform:
   m_ObjectHideFlags: 0
@@ -2626,7 +2672,7 @@ VFXRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1823603837}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -2670,7 +2716,7 @@ VisualEffect:
   m_PropertySheet:
     m_Float:
       m_Array:
-      - m_Value: 1
+      - m_Value: 0.6956483
         m_Name: Spawn Rate
         m_Overridden: 1
     m_Vector2f:
@@ -2680,7 +2726,7 @@ VisualEffect:
       - m_Value: {x: -0, y: 0, z: 0}
         m_Name: Spawn Point_angles
         m_Overridden: 1
-      - m_Value: {x: -1.5, y: -0.013961703, z: 0}
+      - m_Value: {x: 1.8982253, y: 0.00882858, z: 0}
         m_Name: Spawn Point_position
         m_Overridden: 1
       - m_Value: {x: 1, y: 1, z: 1}
@@ -2730,7 +2776,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ExecuteInEditor: 1
-  m_Bindings: []
+  m_Bindings:
+  - {fileID: 1823603841}
   m_VisualEffect: {fileID: 1823603840}
 --- !u!95 &1823603843
 Animator:
@@ -2823,6 +2870,18 @@ PlayableDirector:
     value: {fileID: 1823603843}
   - key: {fileID: 1597910086157110087, guid: 84cd8ac56f9f4e3fc8aaaef9c88e2821, type: 2}
     value: {fileID: 893182211}
+  - key: {fileID: -2079393092825035871, guid: 84cd8ac56f9f4e3fc8aaaef9c88e2821, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 5501729377817664750, guid: 84cd8ac56f9f4e3fc8aaaef9c88e2821, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 7920313576285837150, guid: 84cd8ac56f9f4e3fc8aaaef9c88e2821, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 3215870892511798799, guid: 84cd8ac56f9f4e3fc8aaaef9c88e2821, type: 2}
+    value: {fileID: 1365017467}
+  - key: {fileID: -2373336596774013393, guid: 84cd8ac56f9f4e3fc8aaaef9c88e2821, type: 2}
+    value: {fileID: 1940638872}
+  - key: {fileID: 3617664214885789517, guid: 84cd8ac56f9f4e3fc8aaaef9c88e2821, type: 2}
+    value: {fileID: 599576422}
   m_ExposedReferences:
     m_References:
     - af9041a6c474fa6c597df55f1f86adac: {fileID: 879347887}
@@ -2854,6 +2913,7 @@ GameObject:
   - component: {fileID: 1940638869}
   - component: {fileID: 1940638871}
   - component: {fileID: 1940638870}
+  - component: {fileID: 1940638872}
   m_Layer: 0
   m_Name: Zombie 1 VFX
   m_TagString: Untagged
@@ -2869,7 +2929,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1940638868}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.14, y: 0, z: 0}
+  m_LocalPosition: {x: 1.79, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 226516790}
@@ -2926,8 +2986,11 @@ VisualEffect:
   m_PropertySheet:
     m_Float:
       m_Array:
-      - m_Value: 1
+      - m_Value: 0
         m_Name: Particle Throttle
+        m_Overridden: 1
+      - m_Value: 1
+        m_Name: Fall
         m_Overridden: 1
     m_Vector2f:
       m_Array: []
@@ -2983,6 +3046,25 @@ VisualEffect:
       m_Array: []
     m_Bool:
       m_Array: []
+--- !u!95 &1940638872
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1940638868}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1983666963
 GameObject:
   m_ObjectHideFlags: 0
@@ -3178,7 +3260,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2066818522
 RectTransform:
   m_ObjectHideFlags: 0
