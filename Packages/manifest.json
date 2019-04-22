@@ -4,6 +4,7 @@
     "com.unity.render-pipelines.high-definition": "5.13.0-preview",
     "com.unity.timeline": "1.0.0",
     "com.unity.visualeffectgraph": "5.13.0-preview",
+    "jp.keijiro.ffmpeg-out": "https://github.com/keijiro/jp.keijiro.ffmpeg-out.git",
     "jp.keijiro.klak.hap": "https://github.com/keijiro/KlakHap.git#upm",
     "com.unity.modules.animation": "1.0.0",
     "com.unity.modules.audio": "1.0.0",
@@ -23,6 +24,10 @@
     "jp.keijiro.klak.hap": {
       "hash": "64740a2c6356dbbd03201caefbb0fc42233dbfa3",
       "revision": "upm"
+    },
+    "jp.keijiro.ffmpeg-out": {
+      "hash": "9c735fc1e81e4ac9a81dcf6d870471d80a1cc963",
+      "revision": "HEAD"
     }
   }
 }
