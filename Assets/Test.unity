@@ -496,7 +496,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &226516790
 Transform:
   m_ObjectHideFlags: 0
@@ -1086,7 +1086,7 @@ VisualEffect:
       - m_Value: {x: -0, y: 0, z: 0}
         m_Name: Target Transform_angles
         m_Overridden: 1
-      - m_Value: {x: -2.7, y: -1, z: 2.5}
+      - m_Value: {x: -1.2, y: -1, z: 2.5}
         m_Name: Target Transform_position
         m_Overridden: 1
       - m_Value: {x: 1, y: 1, z: 1}
@@ -1469,7 +1469,7 @@ VisualEffect:
       - m_Value: 0
         m_Name: Particle Throttle
         m_Overridden: 1
-      - m_Value: 1
+      - m_Value: 0
         m_Name: Fall
         m_Overridden: 1
     m_Vector2f:
@@ -1693,7 +1693,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &690047786
 Transform:
   m_ObjectHideFlags: 0
@@ -1888,7 +1888,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &713126671
 Transform:
   m_ObjectHideFlags: 0
@@ -3920,7 +3920,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1365017463}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.89, y: 0, z: 0}
+  m_LocalPosition: {x: 1.25, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 226516790}
@@ -3980,7 +3980,7 @@ VisualEffect:
       - m_Value: 0
         m_Name: Particle Throttle
         m_Overridden: 1
-      - m_Value: 1
+      - m_Value: 0
         m_Name: Fall
         m_Overridden: 1
     m_Vector2f:
@@ -5547,7 +5547,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1802801907
 Transform:
   m_ObjectHideFlags: 0
@@ -5650,8 +5650,11 @@ VisualEffect:
   m_PropertySheet:
     m_Float:
       m_Array:
-      - m_Value: 1
+      - m_Value: 0
         m_Name: Spawn Rate
+        m_Overridden: 1
+      - m_Value: 1
+        m_Name: Throttle
         m_Overridden: 1
     m_Vector2f:
       m_Array: []
@@ -5660,7 +5663,7 @@ VisualEffect:
       - m_Value: {x: -0, y: 0, z: 0}
         m_Name: Spawn Point_angles
         m_Overridden: 1
-      - m_Value: {x: -0.1841867, y: 0.00882858, z: 0}
+      - m_Value: {x: 2.0285368, y: 0.59380305, z: 2.5}
         m_Name: Spawn Point_position
         m_Overridden: 1
       - m_Value: {x: 1, y: 1, z: 1}
@@ -6205,7 +6208,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1940638868}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.79, y: 0, z: 0}
+  m_LocalPosition: {x: 2.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 226516790}
@@ -6262,10 +6265,10 @@ VisualEffect:
   m_PropertySheet:
     m_Float:
       m_Array:
-      - m_Value: 0
+      - m_Value: 1
         m_Name: Particle Throttle
         m_Overridden: 1
-      - m_Value: 1
+      - m_Value: 0.6156006
         m_Name: Fall
         m_Overridden: 1
     m_Vector2f:
