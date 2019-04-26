@@ -292,7 +292,7 @@ VisualEffect:
       - m_Value: 0.5
         m_Name: Height
         m_Overridden: 1
-      - m_Value: 0.080031395
+      - m_Value: 0
         m_Name: Throttle
         m_Overridden: 1
       - m_Value: 0.2
@@ -2287,7 +2287,7 @@ VisualEffect:
       - m_Value: 0.5
         m_Name: Height
         m_Overridden: 1
-      - m_Value: 0.080031395
+      - m_Value: 0
         m_Name: Throttle
         m_Overridden: 1
       - m_Value: 0.2
@@ -2442,7 +2442,7 @@ VisualEffect:
       - m_Value: 0
         m_Name: Scale
         m_Overridden: 1
-      - m_Value: 0.6832132
+      - m_Value: 0.8684839
         m_Name: Entry
         m_Overridden: 1
       - m_Value: 0
@@ -2562,7 +2562,7 @@ GameObject:
   - component: {fileID: 730778527}
   - component: {fileID: 730778526}
   m_Layer: 0
-  m_Name: Body
+  m_Name: Finish Source
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2829,7 +2829,7 @@ VisualEffect:
       - m_Value: 0.5
         m_Name: Height
         m_Overridden: 1
-      - m_Value: 0.080031395
+      - m_Value: 0
         m_Name: Throttle
         m_Overridden: 1
       - m_Value: 0.2
@@ -3121,7 +3121,7 @@ GameObject:
   - component: {fileID: 1006124846}
   - component: {fileID: 1006124848}
   m_Layer: 0
-  m_Name: Body VFX
+  m_Name: Finish VFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3149,7 +3149,7 @@ VFXRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1006124844}
   m_Enabled: 0
-  m_CastShadows: 0
+  m_CastShadows: 1
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_MotionVectors: 0
@@ -3186,7 +3186,7 @@ VisualEffect:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1006124844}
   m_Enabled: 1
-  m_Asset: {fileID: 8926484042661614526, guid: 149c26c31db0ec9e286edb3792c52752, type: 3}
+  m_Asset: {fileID: 8926484042661614526, guid: b11766bc86162bcdb85d8b1f884e05d9, type: 3}
   m_StartSeed: 0
   m_ResetSeedOnPlay: 1
   m_PropertySheet:
@@ -3194,6 +3194,9 @@ VisualEffect:
       m_Array:
       - m_Value: 0
         m_Name: Particle Throttle
+        m_Overridden: 1
+      - m_Value: 0.014127855
+        m_Name: Throttle
         m_Overridden: 1
     m_Vector2f:
       m_Array: []
@@ -3531,7 +3534,7 @@ VisualEffect:
       - m_Value: 0.5
         m_Name: Height
         m_Overridden: 1
-      - m_Value: 0.080031395
+      - m_Value: 0
         m_Name: Throttle
         m_Overridden: 1
       - m_Value: 0.2
@@ -3661,7 +3664,7 @@ VisualEffect:
       - m_Value: 0.5
         m_Name: Height
         m_Overridden: 1
-      - m_Value: 0.080031395
+      - m_Value: 0
         m_Name: Throttle
         m_Overridden: 1
       - m_Value: 0.2
@@ -4804,7 +4807,7 @@ VisualEffect:
       - m_Value: 0.5
         m_Name: Height
         m_Overridden: 1
-      - m_Value: 0.080031395
+      - m_Value: 0
         m_Name: Throttle
         m_Overridden: 1
       - m_Value: 0.2
@@ -5146,7 +5149,7 @@ VisualEffect:
       - m_Value: 0
         m_Name: Scale
         m_Overridden: 1
-      - m_Value: 0.35668162
+      - m_Value: 0.5419519
         m_Name: Entry
         m_Overridden: 1
       - m_Value: 0
@@ -5447,7 +5450,7 @@ VisualEffect:
       - m_Value: 0
         m_Name: Scale
         m_Overridden: 1
-      - m_Value: 0.989336
+      - m_Value: 1
         m_Name: Entry
         m_Overridden: 1
       - m_Value: 0
@@ -5842,7 +5845,7 @@ VisualEffect:
       - m_Value: 0.5
         m_Name: Height
         m_Overridden: 1
-      - m_Value: 0.080031395
+      - m_Value: 0
         m_Name: Throttle
         m_Overridden: 1
       - m_Value: 0.2
@@ -6034,7 +6037,7 @@ VisualEffect:
       - m_Value: 0
         m_Name: Scale
         m_Overridden: 1
-      - m_Value: 0.009743816
+      - m_Value: 0.19501412
         m_Name: Entry
         m_Overridden: 1
       - m_Value: 0
