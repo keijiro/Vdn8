@@ -8095,8 +8095,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a66fbd5ffe9b9d64da304996f1919f40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _width: 1920
-  _height: 648
+  _width: 3200
+  _height: 1080
   _preset: 2
   _frameRate: 60
 --- !u!1 &2002079728
