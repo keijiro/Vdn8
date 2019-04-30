@@ -487,6 +487,7 @@ MonoBehaviour:
   - {fileID: 8926484042661616166}
   - {fileID: 8926484042661616168}
   - {fileID: 8926484042661616172}
+  - {fileID: 8926484042661616182}
   m_UIPosition: {x: 0, y: 0}
   m_UICollapsed: 1
   m_UISuperCollapsed: 0
@@ -770,6 +771,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615296}
   - {fileID: 8926484042661615172}
   - {fileID: 8926484042661615177}
+  - {fileID: 8926484042661616177}
   - {fileID: 8926484042661615248}
   m_UIPosition: {x: 1247, y: 427}
   m_UICollapsed: 0
@@ -1102,7 +1104,9 @@ VisualEffectResource:
       /*attribute:position Composition:Overwrite Source:Slot Random:Off channels:XYZ
       */\n{\n    position = Position;\n}\nvoid SetAttribute_CEEAF35C(inout float alpha,
       float Alpha) /*attribute:alpha Composition:Overwrite Source:Slot Random:Off
-      channels:XYZ */\n{\n    alpha = Alpha;\n}\nvoid SetAttribute_3278B22F(inout
+      channels:XYZ */\n{\n    alpha = Alpha;\n}\nvoid SetAttribute_6ED152F(inout float3
+      velocity, float3 Velocity) /*attribute:velocity Composition:Multiply Source:Slot
+      Random:Off channels:XYZ */\n{\n    velocity *= Velocity;\n}\nvoid SetAttribute_3278B22F(inout
       float size, float Size) /*attribute:size Composition:Overwrite Source:Slot Random:Off
       channels:XYZ */\n{\n    size = Size;\n}\nvoid EulerIntegration(inout float3
       position, float3 velocity, float deltaTime)\n{\n    position += velocity * deltaTime;\n}\n\n\n\n[numthreads(NB_THREADS_PER_GROUP,1,1)]\nvoid
@@ -1117,7 +1121,7 @@ VisualEffectResource:
       0x1 + 0xF4600) << 2));\n\t\t\tfloat size = asfloat(attributeBuffer.Load((index
       * 0x4 + 0x92A03) << 2));\n\t\t\t\n\n\t\t\t\n#if VFX_USE_OLDPOSITION_CURRENT\n\t\t\toldPosition
       = position;\n#endif\n\t\t\t\n\t\t\t{\n\t\t\t    Turbulence_1(position,  /*inout
-      */velocity, mass, InvFieldTransform_a, FieldTransform_a, (float)0.5, (float)8,
+      */velocity, mass, InvFieldTransform_a, FieldTransform_a, (float)0.5, (float)13,
       (float)0.5, (uint)3, deltaTime_a);\n\t\t\t}\n\t\t\t{\n\t\t\t    float tmp_t
       = Base[0];\n\t\t\t    float tmp_u = Base[1];\n\t\t\t    float2 tmp_v = float2(tmp_t,
       tmp_u);\n\t\t\t    float4 tmp_x = SampleTexture(VFX_SAMPLER(texture_b),tmp_v,(float)0);\n\t\t\t
@@ -1132,7 +1136,12 @@ VisualEffectResource:
       \   float tmp_u = Base[1];\n\t\t\t    float2 tmp_v = float2(tmp_t, tmp_u);\n\t\t\t
       \   float4 tmp_x = SampleTexture(VFX_SAMPLER(texture_b),tmp_v,(float)0);\n\t\t\t
       \   float tmp_y = tmp_x[3];\n\t\t\t    SetAttribute_CEEAF35C( /*inout */alpha,
-      tmp_y);\n\t\t\t}\n\t\t\t{\n\t\t\t    float tmp_t = size - uniform_f;\n\t\t\t
+      tmp_y);\n\t\t\t}\n\t\t\t{\n\t\t\t    float tmp_u = Base[0];\n\t\t\t    float
+      tmp_v = Base[1];\n\t\t\t    float2 tmp_w = float2(tmp_u, tmp_v);\n\t\t\t    float4
+      tmp_y = SampleTexture(VFX_SAMPLER(texture_b),tmp_w,(float)0);\n\t\t\t    float
+      tmp_z = tmp_y[3];\n\t\t\t    float tmp_ba = (float)1 - tmp_z;\n\t\t\t    float3
+      tmp_bb = float3(tmp_ba, tmp_ba, tmp_ba);\n\t\t\t    SetAttribute_6ED152F( /*inout
+      */velocity, tmp_bb);\n\t\t\t}\n\t\t\t{\n\t\t\t    float tmp_t = size - uniform_f;\n\t\t\t
       \   float tmp_u = saturate(tmp_t);\n\t\t\t    float tmp_v = Base[0];\n\t\t\t
       \   float tmp_w = Base[1];\n\t\t\t    float2 tmp_x = float2(tmp_v, tmp_w);\n\t\t\t
       \   float4 tmp_z = SampleTexture(VFX_SAMPLER(texture_b),tmp_x,(float)0);\n\t\t\t
@@ -1155,7 +1164,7 @@ VisualEffectResource:
       + 0xF4600) << 2));\n\t\tfloat size = asfloat(attributeBuffer.Load((index * 0x4
       + 0x92A03) << 2));\n\t\t\n\n\t\t\n#if VFX_USE_OLDPOSITION_CURRENT\n\t\toldPosition
       = position;\n#endif\n\t\t\n\t\t{\n\t\t    Turbulence_1(position,  /*inout */velocity,
-      mass, InvFieldTransform_a, FieldTransform_a, (float)0.5, (float)8, (float)0.5,
+      mass, InvFieldTransform_a, FieldTransform_a, (float)0.5, (float)13, (float)0.5,
       (uint)3, deltaTime_a);\n\t\t}\n\t\t{\n\t\t    float tmp_t = Base[0];\n\t\t    float
       tmp_u = Base[1];\n\t\t    float2 tmp_v = float2(tmp_t, tmp_u);\n\t\t    float4
       tmp_x = SampleTexture(VFX_SAMPLER(texture_b),tmp_v,(float)0);\n\t\t    float
@@ -1170,12 +1179,17 @@ VisualEffectResource:
       = Base[1];\n\t\t    float2 tmp_v = float2(tmp_t, tmp_u);\n\t\t    float4 tmp_x
       = SampleTexture(VFX_SAMPLER(texture_b),tmp_v,(float)0);\n\t\t    float tmp_y
       = tmp_x[3];\n\t\t    SetAttribute_CEEAF35C( /*inout */alpha, tmp_y);\n\t\t}\n\t\t{\n\t\t
-      \   float tmp_t = size - uniform_f;\n\t\t    float tmp_u = saturate(tmp_t);\n\t\t
-      \   float tmp_v = Base[0];\n\t\t    float tmp_w = Base[1];\n\t\t    float2 tmp_x
-      = float2(tmp_v, tmp_w);\n\t\t    float4 tmp_z = SampleTexture(VFX_SAMPLER(texture_b),tmp_x,(float)0);\n\t\t
-      \   float tmp_ba = tmp_z[3];\n\t\t    float tmp_bb = Base[2];\n\t\t    float
-      tmp_bc = tmp_bb - tmp_u;\n\t\t    float tmp_bd = tmp_ba * tmp_bc;\n\t\t    float
-      tmp_be = tmp_u + tmp_bd;\n\t\t    SetAttribute_3278B22F( /*inout */size, tmp_be);\n\t\t}\n\t\tEulerIntegration(
+      \   float tmp_u = Base[0];\n\t\t    float tmp_v = Base[1];\n\t\t    float2 tmp_w
+      = float2(tmp_u, tmp_v);\n\t\t    float4 tmp_y = SampleTexture(VFX_SAMPLER(texture_b),tmp_w,(float)0);\n\t\t
+      \   float tmp_z = tmp_y[3];\n\t\t    float tmp_ba = (float)1 - tmp_z;\n\t\t
+      \   float3 tmp_bb = float3(tmp_ba, tmp_ba, tmp_ba);\n\t\t    SetAttribute_6ED152F(
+      /*inout */velocity, tmp_bb);\n\t\t}\n\t\t{\n\t\t    float tmp_t = size - uniform_f;\n\t\t
+      \   float tmp_u = saturate(tmp_t);\n\t\t    float tmp_v = Base[0];\n\t\t    float
+      tmp_w = Base[1];\n\t\t    float2 tmp_x = float2(tmp_v, tmp_w);\n\t\t    float4
+      tmp_z = SampleTexture(VFX_SAMPLER(texture_b),tmp_x,(float)0);\n\t\t    float
+      tmp_ba = tmp_z[3];\n\t\t    float tmp_bb = Base[2];\n\t\t    float tmp_bc =
+      tmp_bb - tmp_u;\n\t\t    float tmp_bd = tmp_ba * tmp_bc;\n\t\t    float tmp_be
+      = tmp_u + tmp_bd;\n\t\t    SetAttribute_3278B22F( /*inout */size, tmp_be);\n\t\t}\n\t\tEulerIntegration(
       /*inout */position, velocity, deltaTime_a);\n\t\t\n\n\t\tattributeBuffer.Store3((index
       * 0x4 + 0x92A00) << 2,asuint(position));\n\t\tattributeBuffer.Store3((index
       * 0x4 + 0xC3800) << 2,asuint(velocity));\n\t\tattributeBuffer.Store((index *
@@ -1278,14 +1292,15 @@ VisualEffectResource:
       float3(0.02,0.02,0.02);\n\t\t\t\t    float3 tmp_bo = tmp_bn + tmp_bb;\n\t\t\t\t
       \   SetAttribute_CAC29747( /*inout */position, tmp_bo);\n\t\t\t\t}\n\t\t\t\t{\n\t\t\t\t
       \   float tmp_s = Base[2];\n\t\t\t\t    float tmp_u = tmp_s * (float)6782.343;\n\t\t\t\t
-      \   float tmp_v = frac(tmp_u);\n\t\t\t\t    float tmp_w = saturate(tmp_v);\n\t\t\t\t
-      \   float4 tmp_x = SampleGradient(uniform_f,tmp_w);\n\t\t\t\t    float4 tmp_y
-      = float4(alpha, alpha, alpha, alpha);\n\t\t\t\t    float4 tmp_z = SampleGradient(uniform_g,tmp_w);\n\t\t\t\t
-      \   float4 tmp_ba = tmp_z - tmp_x;\n\t\t\t\t    float4 tmp_bb = tmp_y * tmp_ba;\n\t\t\t\t
-      \   float4 tmp_bc = tmp_x + tmp_bb;\n\t\t\t\t    float tmp_bd = tmp_bc[0];\n\t\t\t\t
-      \   float tmp_be = tmp_bc[1];\n\t\t\t\t    float tmp_bf = tmp_bc[2];\n\t\t\t\t
-      \   float3 tmp_bg = float3(tmp_bd, tmp_be, tmp_bf);\n\t\t\t\t    SetAttribute_FDD06EC7(
-      /*inout */color, tmp_bg);\n\t\t\t\t}\n\t\t\t\t{\n\t\t\t\t    SetAttribute_CEEAF35C(
+      \   float tmp_v = frac(tmp_u);\n\t\t\t\t    float tmp_x = max(tmp_v, (float)0);\n\t\t\t\t
+      \   float tmp_z = min(tmp_x, (float)1);\n\t\t\t\t    float4 tmp_ba = SampleGradient(uniform_f,tmp_z);\n\t\t\t\t
+      \   float4 tmp_bb = float4(alpha, alpha, alpha, alpha);\n\t\t\t\t    float4
+      tmp_bc = SampleGradient(uniform_g,tmp_z);\n\t\t\t\t    float4 tmp_bd = tmp_bc
+      - tmp_ba;\n\t\t\t\t    float4 tmp_be = tmp_bb * tmp_bd;\n\t\t\t\t    float4
+      tmp_bf = tmp_ba + tmp_be;\n\t\t\t\t    float tmp_bg = tmp_bf[0];\n\t\t\t\t    float
+      tmp_bh = tmp_bf[1];\n\t\t\t\t    float tmp_bi = tmp_bf[2];\n\t\t\t\t    float3
+      tmp_bj = float3(tmp_bg, tmp_bh, tmp_bi);\n\t\t\t\t    SetAttribute_FDD06EC7(
+      /*inout */color, tmp_bj);\n\t\t\t\t}\n\t\t\t\t{\n\t\t\t\t    SetAttribute_CEEAF35C(
       /*inout */alpha, (float)1);\n\t\t\t\t}\n\t\t\t\t\n\n\t\t\t\t\t\t\n\t\t\t\tif
       (!alive)\n\t\t\t\t\treturn o;\n\t\t\t\n\t\t\t\t#if TARGET_FROM_ATTRIBUTES\n\t\t\t\t\n\t\t\t\t\t\tfloat3
       size3 = float3(size,size,size);\n\t\t\t\t\t\t#if VFX_USE_SCALEX_CURRENT\n\t\t\t\t\t\tsize3.x
@@ -1361,18 +1376,18 @@ VisualEffectResource:
         data[1]: -1
         data[2]: -1
         data[3]: 1
-      - op: 50
-        valueIndex: 5
-        data[0]: 3
-        data[1]: -1
-        data[2]: -1
-        data[3]: 0
       - op: 1
-        valueIndex: 9
+        valueIndex: 5
         data[0]: -1
         data[1]: -1
         data[2]: -1
         data[3]: 1
+      - op: 50
+        valueIndex: 6
+        data[0]: 3
+        data[1]: -1
+        data[2]: -1
+        data[3]: 0
       - op: 1
         valueIndex: 10
         data[0]: -1
@@ -1408,31 +1423,31 @@ VisualEffectResource:
         data[0]: -1
         data[1]: -1
         data[2]: -1
-        data[3]: 14
+        data[3]: 1
       - op: 1
         valueIndex: 16
         data[0]: -1
         data[1]: -1
         data[2]: -1
+        data[3]: 14
+      - op: 1
+        valueIndex: 17
+        data[0]: -1
+        data[1]: -1
+        data[2]: -1
         data[3]: 7
       - op: 6
-        valueIndex: 18
+        valueIndex: 19
         data[0]: -1
         data[1]: -1
         data[2]: -1
         data[3]: -1
       - op: 51
-        valueIndex: 19
+        valueIndex: 20
         data[0]: 10
         data[1]: -1
         data[2]: -1
         data[3]: 0
-      - op: 1
-        valueIndex: 20
-        data[0]: -1
-        data[1]: -1
-        data[2]: -1
-        data[3]: 1
       - op: 1
         valueIndex: 21
         data[0]: -1
@@ -1453,7 +1468,7 @@ VisualEffectResource:
         data[3]: 1
       - op: 51
         valueIndex: 24
-        data[0]: 12
+        data[0]: 13
         data[1]: -1
         data[2]: -1
         data[3]: 1
@@ -1483,7 +1498,7 @@ VisualEffectResource:
         data[3]: 1
       - op: 25
         valueIndex: 30
-        data[0]: 14
+        data[0]: 15
         data[1]: 19
         data[2]: -1
         data[3]: 1
@@ -1537,9 +1552,9 @@ VisualEffectResource:
         data[3]: 1
       - op: 3
         valueIndex: 60
-        data[0]: 9
+        data[0]: 8
         data[1]: 24
-        data[2]: 9
+        data[2]: 8
         data[3]: -1
       - op: 25
         valueIndex: 63
@@ -1561,9 +1576,9 @@ VisualEffectResource:
         data[3]: 3
       - op: 3
         valueIndex: 68
-        data[0]: 9
+        data[0]: 8
         data[1]: 35
-        data[2]: 9
+        data[2]: 8
         data[3]: -1
       - op: 1
         valueIndex: 71
@@ -1641,18 +1656,18 @@ VisualEffectResource:
           m_Value: 1
         - m_ExpressionIndex: 4
           m_Value: -1
-        - m_ExpressionIndex: 6
+        - m_ExpressionIndex: 5
           m_Value: 6782.343
         - m_ExpressionIndex: 8
-          m_Value: 0.1
-        - m_ExpressionIndex: 9
           m_Value: 0
+        - m_ExpressionIndex: 9
+          m_Value: 0.1
         - m_ExpressionIndex: 11
           m_Value: 2
-        - m_ExpressionIndex: 16
-          m_Value: 6
-        - m_ExpressionIndex: 17
+        - m_ExpressionIndex: 12
           m_Value: 1
+        - m_ExpressionIndex: 17
+          m_Value: 6
         - m_ExpressionIndex: 18
           m_Value: 0.25
         - m_ExpressionIndex: 19
@@ -1666,7 +1681,7 @@ VisualEffectResource:
         - m_ExpressionIndex: 33
           m_Value: 0.5
         - m_ExpressionIndex: 47
-          m_Value: 8
+          m_Value: 13
       m_Vector2f:
         m_Array:
         - m_ExpressionIndex: 45
@@ -1777,7 +1792,7 @@ VisualEffectResource:
             m_Mode: 0
             m_NumColorKeys: 4
             m_NumAlphaKeys: 2
-        - m_ExpressionIndex: 12
+        - m_ExpressionIndex: 13
           m_Value:
             serializedVersion: 2
             key0: {r: 1.8325224, g: 0.50436395, b: 3.2111173, a: 1}
@@ -1809,7 +1824,7 @@ VisualEffectResource:
             m_NumAlphaKeys: 2
       m_NamedObject:
         m_Array:
-        - m_ExpressionIndex: 13
+        - m_ExpressionIndex: 14
           m_Value: {fileID: 8400000, guid: 3cc5f1ec925c8c629b416694a702884f, type: 2}
         - m_ExpressionIndex: 23
           m_Value: {fileID: 8400000, guid: 458a35b464fe5c0f8a62cf1e05cf8d1b, type: 2}
@@ -1823,7 +1838,7 @@ VisualEffectResource:
     - nameId: Filter Scale
       index: 2
     - nameId: Position Map
-      index: 13
+      index: 14
     - nameId: Transform_angles
       index: 28
     - nameId: Transform_position
@@ -2038,7 +2053,7 @@ VisualEffectResource:
       - nameId: FieldTransform_a
         index: 43
       - nameId: deltaTime_a
-        index: 14
+        index: 15
       - nameId: uniform_e
         index: 32
       - nameId: uniform_f
@@ -2046,7 +2061,7 @@ VisualEffectResource:
       - nameId: texture_b
         index: 23
       - nameId: texture_c
-        index: 13
+        index: 14
       params: []
       processor: {fileID: 0}
       shaderSourceIndex: 1
@@ -2058,13 +2073,13 @@ VisualEffectResource:
       - nameId: uniform_b
         index: 34
       - nameId: uniform_c
-        index: 5
+        index: 6
       - nameId: uniform_d
         index: 2
       - nameId: uniform_e
         index: 4
       - nameId: uniform_f
-        index: 15
+        index: 16
       - nameId: uniform_g
         index: 20
       params:
@@ -2854,6 +2869,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615258}
   - {fileID: 8926484042661615289}
   - {fileID: 8926484042661615178}
+  - {fileID: 8926484042661616183}
 --- !u!114 &8926484042661614645
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9691,7 +9707,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 8
+      m_SerializableObject: 13
     m_Space: 2147483647
   m_Property:
     name: Intensity
@@ -20581,3 +20597,260 @@ MonoBehaviour:
   m_LinkedSlots:
   - {fileID: 8926484042661615520}
   - {fileID: 8926484042661615534}
+--- !u!114 &8926484042661616177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a971fa2e110a0ac42ac1d8dae408704b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Parent: {fileID: 114780028408030698}
+  m_Children: []
+  m_UIPosition: {x: 0, y: 514}
+  m_UICollapsed: 0
+  m_UISuperCollapsed: 0
+  m_InputSlots:
+  - {fileID: 8926484042661616178}
+  m_OutputSlots: []
+  m_Disabled: 0
+  attribute: velocity
+  Composition: 2
+  Source: 0
+  Random: 0
+  channels: 6
+--- !u!114 &8926484042661616178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac39bd03fca81b849929b9c966f1836a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Parent: {fileID: 0}
+  m_Children:
+  - {fileID: 8926484042661616179}
+  - {fileID: 8926484042661616180}
+  - {fileID: 8926484042661616181}
+  m_UIPosition: {x: 0, y: 0}
+  m_UICollapsed: 1
+  m_UISuperCollapsed: 0
+  m_MasterSlot: {fileID: 8926484042661616178}
+  m_MasterData:
+    m_Owner: {fileID: 8926484042661616177}
+    m_Value:
+      m_Type:
+        m_SerializableType: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+      m_SerializableObject: '{"x":0.0,"y":0.0,"z":0.0}'
+    m_Space: 2147483647
+  m_Property:
+    name: Velocity
+    m_serializedType:
+      m_SerializableType: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    attributes: []
+  m_Direction: 0
+  m_LinkedSlots:
+  - {fileID: 8926484042661616184}
+--- !u!114 &8926484042661616179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f780aa281814f9842a7c076d436932e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Parent: {fileID: 8926484042661616178}
+  m_Children: []
+  m_UIPosition: {x: 0, y: 0}
+  m_UICollapsed: 1
+  m_UISuperCollapsed: 0
+  m_MasterSlot: {fileID: 8926484042661616178}
+  m_MasterData:
+    m_Owner: {fileID: 0}
+    m_Value:
+      m_Type:
+        m_SerializableType: 
+      m_SerializableObject: 
+    m_Space: 2147483647
+  m_Property:
+    name: x
+    m_serializedType:
+      m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+    attributes: []
+  m_Direction: 0
+  m_LinkedSlots: []
+--- !u!114 &8926484042661616180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f780aa281814f9842a7c076d436932e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Parent: {fileID: 8926484042661616178}
+  m_Children: []
+  m_UIPosition: {x: 0, y: 0}
+  m_UICollapsed: 1
+  m_UISuperCollapsed: 0
+  m_MasterSlot: {fileID: 8926484042661616178}
+  m_MasterData:
+    m_Owner: {fileID: 0}
+    m_Value:
+      m_Type:
+        m_SerializableType: 
+      m_SerializableObject: 
+    m_Space: 2147483647
+  m_Property:
+    name: y
+    m_serializedType:
+      m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+    attributes: []
+  m_Direction: 0
+  m_LinkedSlots: []
+--- !u!114 &8926484042661616181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f780aa281814f9842a7c076d436932e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Parent: {fileID: 8926484042661616178}
+  m_Children: []
+  m_UIPosition: {x: 0, y: 0}
+  m_UICollapsed: 1
+  m_UISuperCollapsed: 0
+  m_MasterSlot: {fileID: 8926484042661616178}
+  m_MasterData:
+    m_Owner: {fileID: 0}
+    m_Value:
+      m_Type:
+        m_SerializableType: 
+      m_SerializableObject: 
+    m_Space: 2147483647
+  m_Property:
+    name: z
+    m_serializedType:
+      m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+    attributes: []
+  m_Direction: 0
+  m_LinkedSlots: []
+--- !u!114 &8926484042661616182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8ac0ebcb5fd27b408f3700034222acb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Parent: {fileID: 114350483966674976}
+  m_Children: []
+  m_UIPosition: {x: 812, y: 1127}
+  m_UICollapsed: 0
+  m_UISuperCollapsed: 0
+  m_InputSlots:
+  - {fileID: 8926484042661616183}
+  m_OutputSlots:
+  - {fileID: 8926484042661616184}
+  m_Type:
+    m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+--- !u!114 &8926484042661616183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f780aa281814f9842a7c076d436932e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Parent: {fileID: 0}
+  m_Children: []
+  m_UIPosition: {x: 0, y: 0}
+  m_UICollapsed: 1
+  m_UISuperCollapsed: 0
+  m_MasterSlot: {fileID: 8926484042661616183}
+  m_MasterData:
+    m_Owner: {fileID: 8926484042661616182}
+    m_Value:
+      m_Type:
+        m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+          PublicKeyToken=b77a5c561934e089
+      m_SerializableObject: 0
+    m_Space: 2147483647
+  m_Property:
+    name: x
+    m_serializedType:
+      m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+    attributes: []
+  m_Direction: 0
+  m_LinkedSlots:
+  - {fileID: 8926484042661614588}
+--- !u!114 &8926484042661616184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f780aa281814f9842a7c076d436932e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Parent: {fileID: 0}
+  m_Children: []
+  m_UIPosition: {x: 0, y: 0}
+  m_UICollapsed: 1
+  m_UISuperCollapsed: 0
+  m_MasterSlot: {fileID: 8926484042661616184}
+  m_MasterData:
+    m_Owner: {fileID: 8926484042661616182}
+    m_Value:
+      m_Type:
+        m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+          PublicKeyToken=b77a5c561934e089
+      m_SerializableObject: 
+    m_Space: 2147483647
+  m_Property:
+    name: 
+    m_serializedType:
+      m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+    attributes: []
+  m_Direction: 1
+  m_LinkedSlots:
+  - {fileID: 8926484042661616178}

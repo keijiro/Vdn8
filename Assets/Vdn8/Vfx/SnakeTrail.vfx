@@ -231,19 +231,6 @@ MonoBehaviour:
     min: -Infinity
     max: Infinity
     descendantCount: 0
-  - name: Width
-    path: Width
-    tooltip: 
-    sheetType: m_Float
-    realType: Single
-    defaultValue:
-      m_Type:
-        m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-          PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 0.3
-    min: -Infinity
-    max: Infinity
-    descendantCount: 0
   m_GraphVersion: 1
   m_saved: 1
 --- !u!114 &114380859405582094
@@ -861,7 +848,7 @@ VisualEffectResource:
       = particleId ^ asuint(uniform_d);\n            float tmp_q = FixedRand(tmp_p);\n
       \           float tmp_r = SampleCurve(uniform_c,tmp_q);\n            SetCustomAttribute_55FF982D(
       /*inout */Base, tmp_r);\n        }\n        {\n            SetAttribute_FDD06EC7(
-      /*inout */color, float3(41.73181,13.54645,5.68077));\n        }\n        \n\n\n#if
+      /*inout */color, float3(15.59491,27.63514,38.89555));\n        }\n        \n\n\n#if
       VFX_USE_ALIVE_CURRENT\n        if (alive)\n        {\n\t\t\tuint deadIndex =
       deadListIn.DecrementCounter();\n            uint index = deadListIn[deadIndex];\n
       \           attributeBuffer.Store((index * 0x2 + 0x0) << 2,asuint(lifetime));\n
@@ -1616,7 +1603,7 @@ VisualEffectResource:
         - m_ExpressionIndex: 26
           m_Value: {x: 0, y: 1, z: 0}
         - m_ExpressionIndex: 27
-          m_Value: {x: 41.73181, y: 13.546452, z: 5.68077}
+          m_Value: {x: 15.5949135, y: 27.635141, z: 38.895546}
       m_Vector4f:
         m_Array: []
       m_Uint:
@@ -2063,7 +2050,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614581}
   m_exposedName: Target Transform
   m_exposed: 1
-  m_Order: 2
+  m_Order: 1
   m_Category: 
   m_Min:
     m_Type:
@@ -3550,7 +3537,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614922}
   m_exposedName: Throttle
   m_exposed: 1
-  m_Order: 1
+  m_Order: 0
   m_Category: 
   m_Min:
     m_Type:
@@ -8809,7 +8796,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"x":41.7318115234375,"y":13.546451568603516,"z":5.680769920349121}'
+      m_SerializableObject: '{"x":15.594913482666016,"y":27.635141372680665,"z":38.895545959472659}'
     m_Space: 2147483647
   m_Property:
     name: Color

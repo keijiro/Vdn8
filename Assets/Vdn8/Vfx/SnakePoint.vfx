@@ -782,25 +782,26 @@ VisualEffectResource:
       tmp_o = FixedRand(tmp_n);\n            float tmp_p = tmp_o * (float)0.1;\n            float
       tmp_q = (float)0.1 + tmp_p;\n            SetCustomAttribute_55FF982D( /*inout
       */Base, tmp_q);\n        }\n        {\n            SetAttribute_FDD06EC7( /*inout
-      */color, float3(41.73181,13.54645,5.68077));\n        }\n        \n\n\n#if VFX_USE_ALIVE_CURRENT\n
-      \       if (alive)\n        {\n\t\t\tuint deadIndex = deadListIn.DecrementCounter();\n
-      \           uint index = deadListIn[deadIndex];\n            attributeBuffer.Store((index
-      * 0x2 + 0x0) << 2,asuint(lifetime));\n            attributeBuffer.Store3((index
-      * 0xC + 0x28) << 2,asuint(position));\n            attributeBuffer.Store3((index
-      * 0xC + 0x2C) << 2,asuint(targetPosition));\n            attributeBuffer.Store((index
-      * 0x2 + 0x1) << 2,asuint(Base));\n            attributeBuffer.Store3((index
-      * 0xC + 0x30) << 2,asuint(color));\n            attributeBuffer.Store((index
-      * 0x2 + 0x118) << 2,asuint(size));\n            attributeBuffer.Store((index
-      * 0x1 + 0x140) << 2,asuint(age));\n            attributeBuffer.Store((index
-      * 0x2 + 0x119) << 2,uint(alive));\n            \n\n        }\n#else\n        uint
-      index = particleIndex;\n        attributeBuffer.Store((index * 0x2 + 0x0) <<
-      2,asuint(lifetime));\n        attributeBuffer.Store3((index * 0xC + 0x28) <<
-      2,asuint(position));\n        attributeBuffer.Store3((index * 0xC + 0x2C) <<
-      2,asuint(targetPosition));\n        attributeBuffer.Store((index * 0x2 + 0x1)
-      << 2,asuint(Base));\n        attributeBuffer.Store3((index * 0xC + 0x30) <<
-      2,asuint(color));\n        attributeBuffer.Store((index * 0x2 + 0x118) << 2,asuint(size));\n
-      \       attributeBuffer.Store((index * 0x1 + 0x140) << 2,asuint(age));\n        attributeBuffer.Store((index
-      * 0x2 + 0x119) << 2,uint(alive));\n        \n\n#endif\n    }\n}\n"
+      */color, float3(15.59491,27.63514,38.89555));\n        }\n        \n\n\n#if
+      VFX_USE_ALIVE_CURRENT\n        if (alive)\n        {\n\t\t\tuint deadIndex =
+      deadListIn.DecrementCounter();\n            uint index = deadListIn[deadIndex];\n
+      \           attributeBuffer.Store((index * 0x2 + 0x0) << 2,asuint(lifetime));\n
+      \           attributeBuffer.Store3((index * 0xC + 0x28) << 2,asuint(position));\n
+      \           attributeBuffer.Store3((index * 0xC + 0x2C) << 2,asuint(targetPosition));\n
+      \           attributeBuffer.Store((index * 0x2 + 0x1) << 2,asuint(Base));\n
+      \           attributeBuffer.Store3((index * 0xC + 0x30) << 2,asuint(color));\n
+      \           attributeBuffer.Store((index * 0x2 + 0x118) << 2,asuint(size));\n
+      \           attributeBuffer.Store((index * 0x1 + 0x140) << 2,asuint(age));\n
+      \           attributeBuffer.Store((index * 0x2 + 0x119) << 2,uint(alive));\n
+      \           \n\n        }\n#else\n        uint index = particleIndex;\n        attributeBuffer.Store((index
+      * 0x2 + 0x0) << 2,asuint(lifetime));\n        attributeBuffer.Store3((index
+      * 0xC + 0x28) << 2,asuint(position));\n        attributeBuffer.Store3((index
+      * 0xC + 0x2C) << 2,asuint(targetPosition));\n        attributeBuffer.Store((index
+      * 0x2 + 0x1) << 2,asuint(Base));\n        attributeBuffer.Store3((index * 0xC
+      + 0x30) << 2,asuint(color));\n        attributeBuffer.Store((index * 0x2 + 0x118)
+      << 2,asuint(size));\n        attributeBuffer.Store((index * 0x1 + 0x140) <<
+      2,asuint(age));\n        attributeBuffer.Store((index * 0x2 + 0x119) << 2,uint(alive));\n
+      \       \n\n#endif\n    }\n}\n"
   - compute: 1
     name: '[System 1]Update'
     source: "#pragma kernel CSMain\n#define NB_THREADS_PER_GROUP 64\n#define VFX_USE_LIFETIME_CURRENT
@@ -1446,7 +1447,7 @@ VisualEffectResource:
         - m_ExpressionIndex: 18
           m_Value: {x: 0, y: 1, z: 0}
         - m_ExpressionIndex: 19
-          m_Value: {x: 41.73181, y: 13.546452, z: 5.68077}
+          m_Value: {x: 15.5949135, y: 27.635141, z: 38.895546}
         - m_ExpressionIndex: 21
           m_Value: {x: 2, y: 3, z: 2}
       m_Vector4f:
@@ -4702,7 +4703,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"x":41.7318115234375,"y":13.546451568603516,"z":5.680769920349121}'
+      m_SerializableObject: '{"x":15.594913482666016,"y":27.635141372680665,"z":38.895545959472659}'
     m_Space: 2147483647
   m_Property:
     name: Color
