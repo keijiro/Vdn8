@@ -4,6 +4,7 @@
     "com.unity.render-pipelines.high-definition": "5.13.0-preview",
     "com.unity.timeline": "1.0.0",
     "com.unity.visualeffectgraph": "5.13.0-preview",
+    "jp.keijiro.dkvfx": "https://github.com/keijiro/Dkvfx.git#upm",
     "jp.keijiro.ffmpeg-out": "https://github.com/keijiro/jp.keijiro.ffmpeg-out.git",
     "jp.keijiro.klak.hap": "https://github.com/keijiro/KlakHap.git#upm",
     "com.unity.modules.animation": "1.0.0",
@@ -21,13 +22,17 @@
     "com.unity.modules.xr": "1.0.0"
   },
   "lock": {
-    "jp.keijiro.klak.hap": {
-      "hash": "64740a2c6356dbbd03201caefbb0fc42233dbfa3",
+    "jp.keijiro.dkvfx": {
+      "hash": "456aaf96ade6924602952fbd9a9945df8a332d03",
       "revision": "upm"
     },
     "jp.keijiro.ffmpeg-out": {
       "hash": "9c735fc1e81e4ac9a81dcf6d870471d80a1cc963",
       "revision": "HEAD"
+    },
+    "jp.keijiro.klak.hap": {
+      "hash": "64740a2c6356dbbd03201caefbb0fc42233dbfa3",
+      "revision": "upm"
     }
   }
 }
